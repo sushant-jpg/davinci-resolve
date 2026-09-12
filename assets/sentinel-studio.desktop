@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Sentinel Studio
+Comment=Video editing with manual control
+Exec=sentinel-studio %f
+Icon=sentinel-studio
+Terminal=false
+Categories=AudioVideo;Video;AudioVideoEditing;
+StartupWMClass=SentinelStudio

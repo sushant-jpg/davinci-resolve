@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "configurePresets": [{"name": "debug", "binaryDir": "${sourceDir}/build", "cacheVariables": {"CMAKE_BUILD_TYPE": "Debug", "BUILD_TESTING": "ON"}}],
+  "buildPresets": [{"name": "debug", "configurePreset": "debug"}],
+  "testPresets": [{"name": "debug", "configurePreset": "debug", "output": {"outputOnFailure": true}}]
+}
