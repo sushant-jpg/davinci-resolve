@@ -17,7 +17,17 @@ ctest --preset debug
 ./scripts/run.sh
 ```
 
-The current workspace also has an ignored `.local-deps` runtime cache for this Linux machine, so the already-built application can be launched with `./scripts/run.sh` without sudo. This cache is not a portable distribution and is not committed. The build toolchain used for verification was unpacked under `/tmp/sentinel-deps`.
+The current workspace also has an ignored `.local-deps` runtime cache and a development SDK under `.local-deps/sdk` for this Linux machine. The application can be launched with `./scripts/run.sh` without sudo. These caches are not a portable distribution and are not committed. The launcher prefers `build-local/sentinel-studio` when available, otherwise it uses `build/sentinel-studio`.
+
+For the restored local SDK, configure and build with:
+
+```sh
+./scripts/cmake.sh -S . -B build-local -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_PREFIX_PATH="$PWD/.local-deps/sdk/usr"
+./scripts/cmake.sh --build build-local -j 4
+./scripts/run.sh
+```
+
+VS Code's workspace settings use this build directory and its `compile_commands.json` to resolve Qt headers and C++20 settings. `scripts/cmake.sh` uses the local SDK when present and otherwise calls system CMake. On a fresh checkout, install the dependencies listed above first; the local SDK is specific to this Linux workspace. The original temporary SDK under `/tmp/sentinel-deps` is no longer required.
 
 On Windows 11, install Visual Studio 2022 C++ tools, CMake, and a matching Qt 6 MSVC kit with Qt Multimedia. Add the Qt kit and FFmpeg `bin` directories to `PATH`, then build from an x64 developer terminal:
 

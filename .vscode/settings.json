@@ -1,0 +1,13 @@
+{
+    "cmake.cmakePath": "${workspaceFolder}/scripts/cmake.sh",
+    "cmake.useCMakePresets": "never",
+    "cmake.buildDirectory": "${workspaceFolder}/build-local",
+    "cmake.configureSettings": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BUILD_TESTING": "ON",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_PREFIX_PATH": "${workspaceFolder}/.local-deps/sdk/usr"
+    },
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build-local/compile_commands.json",
+    "C_Cpp.default.cppStandard": "c++20"
+}

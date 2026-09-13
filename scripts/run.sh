@@ -9,6 +9,9 @@ if [ -d "$sentinel_runtime/lib" ]; then
     export LD_LIBRARY_PATH="$sentinel_runtime/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 fi
 sentinel_binary="$sentinel_repo/build/sentinel-studio"
+if [ -x "$sentinel_repo/build-local/sentinel-studio" ]; then
+    sentinel_binary="$sentinel_repo/build-local/sentinel-studio"
+fi
 if [ ! -x "$sentinel_binary" ]; then
     echo "Build Sentinel Studio first; see README.md." >&2
     exit 1

@@ -1,0 +1,13 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "words": [
+        "ffprobe",
+        "multitrack",
+        "PLATFORMTHEME",
+        "sandboxed",
+        "VDPAU",
+        "Wextra",
+        "Wpedantic"
+    ]
+}
